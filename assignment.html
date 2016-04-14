@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>GradeBoard</title>
+
+  <!-- Load style sheets -->
+  <link rel="stylesheet" href="assets/css/assignment.css" />
+
+  <!-- Load scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+  <!-- Include Semantic-UI -->
+  <script src="assets/Semantic-UI/semantic.min.js"></script>
+  <script src="assets/Semantic-UI/components/accordion.js"></script>
+  <link href="assets/Semantic-UI/semantic.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="pushable">
+  <script>
+    $(document).ready(function(){
+      $('.ui.accordion').accordion({exclusive:false});
+
+      $('.ui.sidebar').sidebar({closable:false, dimPage:false});
+
+      $('.class-select .title').click(function(){
+        $('.ui.accordion').accordion('close', $('.active.item:has(.title)').index());
+        $('.active.item:has(.title)').removeClass('active');
+        $(this).parent().addClass('active');
+
+        // On the dashboard, assignments should be filtered by class here
+        // this.title gives the class name, or "all" for all classes
+        console.log(this.title);
+      });
+
+      $('.toggle-sidebar').click(function(){
+        $('.ui.sidebar').sidebar('toggle');
+        $('.show-sidebar').toggle();
+      });
+    });
+  </script>
+
+  <div class="ui visible vertical menu sidebar">
+    <div class="header item">
+      <i class="sidebar icon toggle-sidebar" style="cursor:pointer;"></i>
+      GradeBoard
+    </div>
+
+    <div class="item">
+      Sarah Liu
+    </div>
+
+    <div class="ui centered grid">
+      <div class="center aligned column">
+        <div class="ui secondary compact icon menu">
+          <a class="item" href="dashboard.html">
+            <i class="big home icon"></i>
+          </a>
+          <a class="item">
+            <i class="big user icon"></i>
+          </a>
+          <a class="item">
+            <i class="big power icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui fluid vertical secondary pointing blue accordion menu class-select">
+      <div class="active item">
+        <a class="title" title="all">
+          All Classes
+        </a>
+      </div>
+      <div class="item">
+        <a class="title" title="6.813">
+          <i class="dropdown icon"></i>
+          6.813
+        </a>
+        <div class="content">
+          <div class="menu">
+            <a class="item">
+              HW1
+            </a>
+            <a class="item" href="assignment.html">
+              PS1
+            </a>
+            <a class="item">
+              PS2
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="title" title="6.033">
+          <i class="dropdown icon"></i>
+          6.033
+        </a>
+        <div class="content">
+          <div class="menu">
+            <a class="item">
+              HW1
+            </a>
+            <a class="item">
+              PS1
+            </a>
+            <a class="item">
+              PS2
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pusher">
+    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;" id="sidebar-button">
+      <i class="sidebar icon"></i>
+    </button>
+
+  <div class="ui breadcrumb" id="breadcrumb">
+    <a class="section" href="dashboard.html">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section">6.813</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">PS1</div>
+  </div>
+
+  <div class="ui buttons" id="students-button">
+    <button class="ui button">All Students</button>
+    <button class="ui button active">My Students</button>
+  </div>
+
+  <div class="ui search" id="students-search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search students...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+
+  <script>
+    var content = [
+      { title: 'zhangd'},
+      { title: 'slui'},
+      { title: 'theronn'},
+      { title: 'jlmart' }
+    ];
+
+    $('.ui.search')
+      .search({
+        source: content
+      })
+    ;
+  </script>
+
+  <table class="ui selectable celled table" id="grade-table">
+    <thead>
+      <tr><th class="two wide">Kerberos</th>
+      <th class="one wide">Layout</th>
+      <th class="one wide">Behavior</th>
+      <th class="one wide">Usability</th>
+      <th class="one wide">Total</th>
+      <th class="five wide">Comments</th>
+    </tr></thead>
+    <tbody>
+      <tr class="positive">
+        <td>zhangd</td>
+        <td>90</td>
+        <td>85</td>
+        <td>95</td>
+        <td>90</td>
+        <td>awesome</td>
+      </tr>
+      <tr class="positive">
+        <td>slui</td>
+        <td>85</td>
+        <td>90</td>
+        <td>80</td>
+        <td>85</td>
+        <td>cool</td>
+      </tr>
+      <tr class="positive">
+        <td>theronn</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>right on!</td>
+      </tr>
+      <tr class="negative" id="jlmart">
+        <td>jlmart</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      PS1 - jlmart
+    </div>
+    <div class="content">
+      <h3>Rubric</h3>
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Excellent</th>
+            <th>Satisfactory</th>
+            <th>Poor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="category">Layout</td>
+            <td>The student did an excellent job at UI layout.</td>
+            <td>The student did an satisfactory job at UI layout.</td>
+            <td>The student did an poor job at UI layout.</td>
+          </tr>
+          <tr>
+            <td class="category">Behavior</td>
+            <td>The student did an excellent job at UI behavior.</td>
+            <td>The student did an satisfactory job at UI behavior.</td>
+            <td>The student did an poor job at UI behavior.</td>
+          </tr>
+          <tr>
+            <td class="category">Usability</td>
+            <td>The student did an excellent job at UI usability.</td>
+            <td>The student did an satisfactory job at UI usability.</td>
+            <td>The student did an poor job at UI usability.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui grid">
+        <div class="four wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Layout</label>
+              <input type="text" name="layout" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Behavior</label>
+              <input type="text" name="behavior" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Usability</label>
+              <input type="text" name="usability" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Overall Grade</label>
+              <input name="overall" readonly="" placeholder="95">
+            </div>
+          </form>
+        </div>
+        <div class="twelve wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Feedback</label>
+              <textarea rows="14"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui red deny button">
+        Cancel
+      </div>
+      <div class="ui green positive button">
+        Save
+      </div>
+      <div class="ui positive right labeled icon button">
+        Submit
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('#jlmart').click(function() {
+      $('.ui.modal')
+        .modal('show')
+      ;
+    });
+  </script>
+
+  </div>
+</body>
+</html>
+
+
