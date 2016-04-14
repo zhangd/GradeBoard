@@ -19,12 +19,13 @@
 <body class="pushable">
   <script>
     $(document).ready(function(){
-      $('.ui.accordion').accordion();
+      $('.ui.accordion').accordion({exclusive:false});
 
       $('.ui.sidebar').sidebar({closable:false, dimPage:false});
 
       $('.class-select .title').click(function(){
-        $('.active').removeClass('active');
+        $('.ui.accordion').accordion('close', $('.active.item:has(.title)').index());
+        $('.active.item:has(.title)').removeClass('active');
         $(this).parent().addClass('active');
 
         // On the dashboard, assignments should be filtered by class here
@@ -40,10 +41,10 @@
   </script>
 
   <div class="ui visible vertical menu sidebar">
-    <a class="header item toggle-sidebar">
-      <i class="sidebar icon"></i>
+    <div class="header item">
+      <i class="sidebar icon toggle-sidebar" style="cursor:pointer;"></i>
       GradeBoard
-    </a>
+    </div>
 
     <div class="item">
       Sarah Liu
