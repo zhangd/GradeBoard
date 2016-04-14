@@ -30,9 +30,23 @@
         $(this).parent().addClass('active');
 
         // On the dashboard, assignments should be filtered by class here
+        if (this.title === "all") {
+          $('.raised.segment').each(function(){
+            $(this).show();
+          });
+        } else {
+          $('.raised.segment').each(function(){
+            $(this).hide();
+          });
+          $('.raised.segment[data-class="'+this.title+'"]').each(function(){
+            $(this).show();
+          });
+        }
+
         // this.title gives the class name, or "all" for all classes
         console.log(this.title);
       });
+
 
       $('.toggle-sidebar').click(function(){
         $('.ui.sidebar').sidebar('toggle');
@@ -41,7 +55,7 @@
     });
   </script>
 
-  <div class="ui visible vertical menu sidebar">
+  <div class="ui visible vertical menu sidebar" style="overflow:hidden;">
     <div class="header item">
       <i class="sidebar icon toggle-sidebar" style="cursor:pointer;"></i>
       GradeBoard
@@ -73,6 +87,7 @@
           All Classes
         </a>
       </div>
+
       <div class="item">
         <a class="title" title="6.813">
           <i class="dropdown icon"></i>
@@ -81,8 +96,19 @@
         <div class="content">
           <div class="menu">
             <a class="item">
-              HW1
+              PS1
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <a class="title" title="6.046">
+          <i class="dropdown icon"></i>
+          6.046
+        </a>
+        <div class="content">
+          <div class="menu">
             <a class="item">
               PS1
             </a>
@@ -92,21 +118,16 @@
           </div>
         </div>
       </div>
+
       <div class="item">
-        <a class="title" title="6.033">
+        <a class="title" title="6.170">
           <i class="dropdown icon"></i>
-          6.033
+          6.170
         </a>
         <div class="content">
           <div class="menu">
             <a class="item">
               HW1
-            </a>
-            <a class="item">
-              PS1
-            </a>
-            <a class="item">
-              PS2
             </a>
           </div>
         </div>
@@ -119,7 +140,7 @@
       <i class="sidebar icon"></i>
     </button>
 
-    <div class="ui raised segment" style = "margin: 2em; width: 67%;">
+    <div class="ui raised segment" data-class = "6.813" style = "margin: 2em; width: 67%;">
     	<div style="margin-bottom:1em;">
 	    	<span style = "font-size:20px;font-weight:bold;"> 6.813 PS1</span>&nbsp;
 	    	<span style = "font-style:italic;"> due in two hours </span>
@@ -134,7 +155,7 @@
 	    	</a>
    	</div>
 
-    <div class="ui raised segment" style = "margin: 2em; width: 67%;">
+    <div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
     	<div style="margin-bottom:1em;">
 	    	<span style = "font-size:20px;font-weight:bold;"> 6.046 PS2</span>&nbsp;
 	    	<span style = "font-style:italic;"> due on Monday </span>
@@ -147,7 +168,7 @@
 	    	<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> Continue grading </button>
    	</div>
 
-   	<div class="ui raised segment" style = "margin: 2em; width: 67%;">
+   	<div class="ui raised segment" data-class = "6.170" style = "margin: 2em; width: 67%;">
     	<div style="margin-bottom:1em;">
 	    	<span style = "font-size:20px;font-weight:bold;"> 6.170 HW1</span>&nbsp;
 	    	<span style = "font-style:italic;"> due April 20 </span>
@@ -160,7 +181,7 @@
 	    	<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> Start grading </button>
    	</div>
 
-   	<div class="ui raised segment" style = "margin: 2em; width: 67%;">
+   	<div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
     	<div style="margin-bottom:1em;">
 	    	<span style = "font-size:20px;font-weight:bold;"> 6.046 PS1</span>&nbsp;
 	    	<span style = "font-style:italic;"> due last week </span>
