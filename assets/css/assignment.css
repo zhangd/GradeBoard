@@ -1,0 +1,43 @@
+/* Assignment Page CSS */
+
+#breadcrumb {
+	margin-left:20px;
+	margin-top:30px;
+	float: left;
+}
+
+#students-button {
+	float: left;
+	clear: left;
+	display:inline-block;
+	margin:20px;
+}
+
+#students-search {
+	display:inline-block;
+	float: right;
+	margin:20px;
+	margin-right:40px;
+}
+
+#grade-table {
+	float:left;
+	margin-left:20px;
+	margin-right:100px;
+	table-layout: fixed;
+	width: 1130px;
+}
+
+#sidebar-button {
+	margin-left:20px;
+	margin-top:20px;
+	float: left;
+}
+
+.pusher {
+	margin-right:250px;
+}
+
+.category {
+	font-weight:bold;
+}
