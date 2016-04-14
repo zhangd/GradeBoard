@@ -23,9 +23,13 @@
 
       $('.ui.sidebar').sidebar({closable:false, dimPage:false});
 
-      $('.class-select .item').click(function(){
+      $('.class-select .title').click(function(){
         $('.active').removeClass('active');
-        $(this).addClass('active');
+        $(this).parent().addClass('active');
+
+        // On the dashboard, assignments should be filtered by class here
+        // this.title gives the class name, or "all" for all classes
+        console.log(this.title);
       });
 
       $('.toggle-sidebar').click(function(){
@@ -62,11 +66,13 @@
     </div>
 
     <div class="ui fluid vertical secondary pointing blue accordion menu class-select">
-      <a class="active item">
-        All Classes
-      </a>
+      <div class="active item">
+        <a class="title" title="all">
+          All Classes
+        </a>
+      </div>
       <div class="item">
-        <a class="title">
+        <a class="title" title="6.813">
           <i class="dropdown icon"></i>
           6.813
         </a>
@@ -85,7 +91,7 @@
         </div>
       </div>
       <div class="item">
-        <a class="title">
+        <a class="title" title="6.033">
           <i class="dropdown icon"></i>
           6.033
         </a>
