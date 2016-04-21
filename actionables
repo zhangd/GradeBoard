@@ -1,0 +1,16 @@
+-Login page
+-Settings page
+-Update sidebar (Settings and Logout on the bottom, GradeBoard text clickable)
+-Update dashboard (sorted by urgency with colors, figure out what to do with archived assignments, make elements responsive to window resizing) 
+-Update grading page - right “summary” sidebar or floaty bar thing (submitting grades)
+-Redesign modal, different weighting for categories in rubric
+-Add an affordance for urgency of assignment, 
+-Some people liked the moving light on the assignment progress bar, some did not.
+-Sorting the dashboard assignments by urgency will be confusing in terms of the colors used to represent them.
+-Save/submit on the grading modal is the same color and should be differentiated.
+-There should be a submission for all grades, not just one specific student's.
+-It would be nice for a user to click a cell on the rubric table and the text would automatically paste itself into the feedback field.
+-Use "you" in the rubric.
+-The categories are not all out of 100, points are subjective to weight.
+
+
