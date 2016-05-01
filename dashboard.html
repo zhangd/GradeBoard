@@ -33,14 +33,14 @@
         // On the dashboard, assignments should be filtered by class here
         if (this.title === "all") {
           $('.raised.segment').each(function(){
-            $(this).show();
+            $(this).slideDown();
           });
         } else {
-          $('.raised.segment').each(function(){
-            $(this).hide();
+          $('.raised.segment:not([data-class="'+this.title+'"])').each(function(){
+            $(this).slideUp();
           });
           $('.raised.segment[data-class="'+this.title+'"]').each(function(){
-            $(this).show();
+            $(this).slideDown();
           });
         }
 
@@ -244,5 +244,3 @@
   </div>
 </body>
 </html>
-
-
