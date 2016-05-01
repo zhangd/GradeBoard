@@ -6,6 +6,7 @@
 
   <!-- Load style sheets -->
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
 
   <!-- Load scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -139,60 +140,85 @@
     <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;">
       <i class="sidebar icon"></i>
     </button>
+      <div class="ui raised segment" data-class = "6.813" style = "margin: 2em; width: 67%;">
+      	<div style="margin-bottom:1em;">
+  	    	<span style = "font-size:20px;font-weight:bold;"> 6.813 PS1</span>&nbsp;
+  	    	<span style = "font-style:italic;"> due in two hours </span>
+  	    </div>
+        <div class = "flex-container">
+          <div class = "flex-item-1">
+      	   	<div class = "ui indicating progress" data-percent="80">
+      	    	<div class = "bar" style = "transition-duration: 300ms; width:80%;"></div>
+      	    	<div class = "label">80% Graded</div>
+      	    </div>
+          </div>
+          <div class = "flex-item-2">
+            <a href="assignment.html">
+        	    <button class = "ui grey button" style = "width:150px;"> Continue grading </button>
+        	  </a>
+          </div>
+     	  </div>
+      </div>
 
-    <div class="ui raised segment" data-class = "6.813" style = "margin: 2em; width: 67%;">
-    	<div style="margin-bottom:1em;">
-	    	<span style = "font-size:20px;font-weight:bold;"> 6.813 PS1</span>&nbsp;
-	    	<span style = "font-style:italic;"> due in two hours </span>
-	    </div>
-	    <span style="width:100%;">
-	    	<div class = "ui indicating progress active" data-percent="80" style = "width:40em;display:inline-block;">
-	    		<div class = "bar" style = "transition-duration: 300ms; width:80%;"></div>
-	    		<div class = "label">80% Graded</div>
-	    	</div>
-	    	<a href="assignment.html">
-	    		<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> Continue grading </button>
-	    	</a>
-   	</div>
+      <div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
+        <div style="margin-bottom:1em;">
+          <span style = "font-size:20px;font-weight:bold;"> 6.046 PS2</span>&nbsp;
+          <span style = "font-style:italic;"> due on Monday </span>
+        </div>
+        <div class = "flex-container">
+          <div class = "flex-item-1">
+            <div class = "ui indicating progress" data-percent="20">
+              <div class = "bar" style = "transition-duration: 300ms; width:20%;"></div>
+              <div class = "label">20% Graded</div>
+            </div>
+          </div>
+          <div class = "flex-item-2">
+            <a href="assignment.html">
+              <button class = "ui grey button" style = "width:150px;"> Continue grading </button>
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
-    	<div style="margin-bottom:1em;">
-	    	<span style = "font-size:20px;font-weight:bold;"> 6.046 PS2</span>&nbsp;
-	    	<span style = "font-style:italic;"> due on Monday </span>
-	    </div>
-	    <span style="width:100%;">
-	    	<div class = "ui indicating progress active" data-percent="20" style = "width:40em;display:inline-block;">
-	    		<div class = "bar" style = "transition-duration: 300ms; width:20%;"></div>
-	    		<div class = "label">20% Graded</div>
-	    	</div>
-	    	<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> Continue grading </button>
-   	</div>
+      <div class="ui raised segment" data-class = "6.170" style = "margin: 2em; width: 67%;">
+        <div style="margin-bottom:1em;">
+          <span style = "font-size:20px;font-weight:bold;"> 6.170 HW1 </span>&nbsp;
+          <span style = "font-style:italic;"> due April 20 </span>
+        </div>
+        <div class = "flex-container">
+          <div class = "flex-item-1">
+            <div class = "ui indicating progress" data-percent="0">
+              <div class = "bar" style = "transition-duration: 300ms; width:0%;"></div>
+              <div class = "label">0% Graded</div>
+            </div>
+          </div>
+          <div class = "flex-item-2">
+            <a href="assignment.html">
+              <button class = "ui green button" style = "width:150px;"> Start grading </button>
+            </a>
+          </div>
+        </div>
+      </div>
 
-   	<div class="ui raised segment" data-class = "6.170" style = "margin: 2em; width: 67%;">
-    	<div style="margin-bottom:1em;">
-	    	<span style = "font-size:20px;font-weight:bold;"> 6.170 HW1</span>&nbsp;
-	    	<span style = "font-style:italic;"> due April 20 </span>
-	    </div>
-	    <span style="width:100%;">
-	    	<div class = "ui indicating progress active" data-percent="0" style = "width:40em;display:inline-block;">
-	    		<div class = "bar" style = "transition-duration: 300ms; width:0%;"></div>
-	    		<div class = "label">0% Graded</div>
-	    	</div>
-	    	<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> Start grading </button>
-   	</div>
-
-   	<div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
-    	<div style="margin-bottom:1em;">
-	    	<span style = "font-size:20px;font-weight:bold;"> 6.046 PS1</span>&nbsp;
-	    	<span style = "font-style:italic;"> due last week </span>
-	    </div>
-	    <span style="width:100%;">
-	    	<div class = "ui indicating progress active" data-percent="100" style = "width:40em;display:inline-block;">
-	    		<div class = "bar" style = "transition-duration: 300ms; width:100%;"></div>
-	    		<div class = "label">100% Graded</div>
-	    	</div>
-	    	<button class = "ui button" style = "float:right;margin-left:1em;width:15em;display:inline-block;"> View grades </button>
-   	</div>
+      <div class="ui raised segment" data-class = "6.046" style = "margin: 2em; width: 67%;">
+        <div class = "inactive">
+          <span style = "font-size:20px;font-weight:bold;"> 6.046 PS1</span>&nbsp;
+          <span style = "font-style:italic;"> due last week </span>
+        </div>
+        <div class = "flex-container">
+          <div class = "flex-item-1">
+            <div class = "ui disabled progress" data-percent="100">
+              <div class = "bar" style = "transition-duration: 300ms; width:100%;"></div>
+              <div class = "label">100% Graded</div>
+            </div>
+          </div>
+          <div class = "flex-item-2">
+            <a href="assignment.html">
+              <button class = "ui grey button" style = "width:150px;"> View grades </button>
+            </a>
+          </div>
+        </div>
+      </div>
 
   </div>
 </body>
