@@ -223,12 +223,26 @@
   </table>
 
   <script>
-    if ($("#zhangd_layout").val() == "" || $("#zhangd_behavior").val() == "" || $("#zhangd_usability").val() == "" || $("#zhangd_overall").val() == "" || $("#zhangd_overall").val() == "NaN") {
+    if (sessionStorage.ps1_6813_zhangd_overall == null || sessionStorage.ps1_6813_zhangd_overall == "NaN" || $("zhangd_overall") == "NaN" || $("zhangd_overall") == null) {
       $("#zhangd").attr('class', 'negative');
     } else {
       $("#zhangd").attr('class', 'positive'); 
     }
-    
+    if (sessionStorage.ps1_6813_slui_overall == null || sessionStorage.ps1_6813_slui_overall == "NaN" || $("slui_overall") == "NaN" || $("slui_overall") == null) {
+      $("#slui").attr('class', 'negative');
+    } else {
+      $("#slui").attr('class', 'positive'); 
+    }
+    if (sessionStorage.ps1_6813_theronn_overall == null || sessionStorage.ps1_6813_theronn_overall == "NaN" || $("theronn_overall") == "NaN" || $("theronn_overall") == null) {
+      $("#theronn").attr('class', 'negative');
+    } else {
+      $("#theronn").attr('class', 'positive'); 
+    }
+    if (sessionStorage.ps1_6813_jlmart_overall == null || sessionStorage.ps1_6813_jlmart_overall == "NaN" || $("jlmart_overall") == "NaN" || $("jlmart_overall") == null) {
+      $("#jlmart").attr('class', 'negative');
+    } else {
+      $("#jlmart").attr('class', 'positive'); 
+    }
   </script>
 
   <script>
@@ -404,15 +418,6 @@
       $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
       sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
       $("#zhangd_feedback_td").html(sessionStorage.ps1_6813_zhangd_feedback);
-<<<<<<< HEAD
-      // if ($("#zhangd_overall_grade").html()) {
-      //   $("#zhangd").attr('class', 'positive');
-      // } else {
-      //   $("#zhangd").attr('class', 'negative');
-      // }
-      if ($("#zhangd_layout_grade").val() == "" || $("#zhangd_behavior_grade").val() == "" || $("#zhangd_usability_grade").val() == "") {
-        $("#zhangd").attr('class', 'negative');
-      }
       var count = 0;
       if (sessionStorage.ps1_6813_zhangd_overall) {
         count += 1;
@@ -427,6 +432,11 @@
         count += 1;
       }
       sessionStorage.ps1_6813 = (count/4)*100;
+      if (sessionStorage.ps1_6813_zhangd_overall == null || sessionStorage.ps1_6813_zhangd_overall == "NaN" || $("zhangd_overall") == "NaN" || $("zhangd_overall") == null) {
+        $("#zhangd").attr('class', 'negative');
+      } else {
+        $("#zhangd").attr('class', 'positive'); 
+      }
     });
   </script>
 
@@ -546,6 +556,11 @@
         count += 1;
       }
       sessionStorage.ps1_6813 = (count/4)*100;
+      if (sessionStorage.ps1_6813_slui_overall == null || sessionStorage.ps1_6813_slui_overall == "NaN" || $("slui_overall") == "NaN" || $("slui_overall") == null) {
+        $("#slui").attr('class', 'negative');
+      } else {
+        $("#slui").attr('class', 'positive'); 
+      }
     });
   </script>
 
@@ -665,6 +680,11 @@
         count += 1;
       }
       sessionStorage.ps1_6813 = (count/4)*100;
+      if (sessionStorage.ps1_6813_theronn_overall == null || sessionStorage.ps1_6813_theronn_overall == "NaN" || $("theronn_overall") == "NaN" || $("theronn_overall") == null) {
+        $("#theronn").attr('class', 'negative');
+      } else {
+        $("#theronn").attr('class', 'positive'); 
+      }
     });
   </script>
 
@@ -784,6 +804,11 @@
         count += 1;
       }
       sessionStorage.ps1_6813 = (count/4)*100;
+      if (sessionStorage.ps1_6813_jlmart_overall == null || sessionStorage.ps1_6813_jlmart_overall == "NaN" || $("jlmart_overall") == "NaN" || $("jlmart_overall") == null) {
+        $("#jlmart").attr('class', 'negative');
+      } else {
+        $("#jlmart").attr('class', 'positive'); 
+      }
     });
   </script>
 
