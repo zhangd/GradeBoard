@@ -36,6 +36,8 @@
           $('.raised.segment').each(function(){
             $(this).slideDown();
           });
+          $('#class-selected').hide();
+          $('#class-all').show();
         } else {
           $('.raised.segment:not([data-class="'+this.title+'"])').each(function(){
             $(this).slideUp();
@@ -43,6 +45,9 @@
           $('.raised.segment[data-class="'+this.title+'"]').each(function(){
             $(this).slideDown();
           });
+          $('#class-selected').show();
+          $('#class-all').hide();
+          $('#class-name').html(this.title);
         }
 
         // this.title gives the class name, or "all" for all classes
@@ -245,9 +250,23 @@
   </div>
 
   <div class="pusher">
-    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;">
+    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;" id="sidebar-button">
       <i class="sidebar icon"></i>
     </button>
+
+    <div class="ui breadcrumb" id="breadcrumb">
+      <span id="class-all">
+        <div class="active section">Home</div>
+      </span>
+      <span id="class-selected" style="display:none;">
+        <a class="active section" href="dashboard.html">Home</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section" id="class-name">CLASS NAME</div>
+      </span>
+    </div>
+
+    <br style="clear:both">
+
       <div class="ui raised segment" data-class = "6.813" style = "margin: 2em; width: 67%;">
       	<div style="margin-bottom:1em;">
   	    	<span style = "font-size:20px;font-weight:bold;"> 6.813 PS1</span>&nbsp;
