@@ -15,23 +15,49 @@
   <script src="assets/Semantic-UI/components/accordion.js"></script>
   <link href="assets/Semantic-UI/semantic.min.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+  <script>
+    function submit() {
+      if ( $("#username").get(0).value === "sarahlui"
+           && $("#password").get(0).value === "password" ) {
+        window.location = "dashboard.html";
+      } else {
+        $("#username").get(0).value = "";
+        $("#password").get(0).value = "";
+        $("#invalid-login").show();
+      }
+    }
+    $(document).ready(function(){
+      $("#password").on("keyup", function(e) {
+        if (e.keyCode == 13) {
+          submit();
+        }
+      });
+    });
+  </script>
+
   <div class="ui middle aligned grid" style="height:100%;width:100%;">
-    <div style="width:60%; margin:auto;">
+    <div style="width:60%; max-width:500px; margin:auto;">
       <h1>GradeBoard</h1>
       <div class = "ui clearing segment" style="padding:20px 40px;">
         <h2>Login</h2>
         <div class="ui form">
           <div class="field">
             <label>Username</label>
-            <input placeholder="Username" type="text">
+            <input placeholder="Username" type="text" id="username">
           </div>
           <div class="field">
             <label>Password</label>
-            <input placeholder="Password" type="password">
+            <input placeholder="Password" type="password" id="password">
             <a href="#">forgot password?</a>
           </div>
-          <button class="ui right floated primary button" type="submit">Login</button>
+          <div class="ui hidden negative message" id="invalid-login">
+            <div class="header">
+              Invalid username or password
+            </div>
+          </div>
+          <button class="ui right floated primary button" type="submit" onclick="submit();">Login</button>
         </div>
       </div>
     </div>
