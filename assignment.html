@@ -286,7 +286,20 @@
     $("#jlmart_overall_grade").html(average(sessionStorage.ps1_6813_jlmart_layout,sessionStorage.ps1_6813_jlmart_behavior,sessionStorage.ps1_6813_jlmart_usability));
     $("#jlmart_feedback_td").html(sessionStorage.ps1_6813_jlmart_feedback);
 
-    sessionStorage.ps1_6813 = 75;
+    var count = 0;
+    if (!($("#zhangd_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#slui_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#theronn_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#jlmart_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    sessionStorage.ps1_6813 = (count/4)*100;
   </script>
 
   <div class="ui zhangd modal">
@@ -391,6 +404,7 @@
       $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
       sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
       $("#zhangd_feedback_td").html(sessionStorage.ps1_6813_zhangd_feedback);
+<<<<<<< HEAD
       // if ($("#zhangd_overall_grade").html()) {
       //   $("#zhangd").attr('class', 'positive');
       // } else {
@@ -399,6 +413,20 @@
       if ($("#zhangd_layout_grade").val() == "" || $("#zhangd_behavior_grade").val() == "" || $("#zhangd_usability_grade").val() == "") {
         $("#zhangd").attr('class', 'negative');
       }
+      var count = 0;
+      if (sessionStorage.ps1_6813_zhangd_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_slui_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_theronn_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_jlmart_overall) {
+        count += 1;
+      }
+      sessionStorage.ps1_6813 = (count/4)*100;
     });
   </script>
 
@@ -504,6 +532,20 @@
       $("#slui_overall_grade").html(sessionStorage.ps1_6813_slui_overall);
       sessionStorage.ps1_6813_slui_feedback = $("#slui_feedback").val();
       $("#slui_feedback_td").html(sessionStorage.ps1_6813_slui_feedback);
+      var count = 0;
+      if (sessionStorage.ps1_6813_zhangd_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_slui_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_theronn_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_jlmart_overall) {
+        count += 1;
+      }
+      sessionStorage.ps1_6813 = (count/4)*100;
     });
   </script>
 
@@ -609,6 +651,20 @@
       $("#theronn_overall_grade").html(sessionStorage.ps1_6813_theronn_overall);
       sessionStorage.ps1_6813_theronn_feedback = $("#theronn_feedback").val();
       $("#theronn_feedback_td").html(sessionStorage.ps1_6813_theronn_feedback);
+      var count = 0;
+      if (sessionStorage.ps1_6813_zhangd_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_slui_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_theronn_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_jlmart_overall) {
+        count += 1;
+      }
+      sessionStorage.ps1_6813 = (count/4)*100;
     });
   </script>
 
@@ -714,6 +770,20 @@
       $("#jlmart_overall_grade").html(sessionStorage.ps1_6813_jlmart_overall);
       sessionStorage.ps1_6813_jlmart_feedback = $("#jlmart_feedback").val();
       $("#jlmart_feedback_td").html(sessionStorage.ps1_6813_jlmart_feedback);
+      var count = 0;
+      if (sessionStorage.ps1_6813_zhangd_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_slui_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_theronn_overall) {
+        count += 1;
+      }
+      if (sessionStorage.ps1_6813_jlmart_overall) {
+        count += 1;
+      }
+      sessionStorage.ps1_6813 = (count/4)*100;
     });
   </script>
 
