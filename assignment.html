@@ -187,7 +187,7 @@
       <th class="five wide">Comments</th>
     </tr></thead>
     <tbody style = "cursor:pointer;">
-      <tr class="positive" id="zhangd">
+      <tr class="" id="zhangd">
         <td>zhangd</td>
         <td id="zhangd_layout_grade"></td>
         <td id="zhangd_behavior_grade"></td>
@@ -195,7 +195,7 @@
         <td id="zhangd_overall_grade"></td>
         <td id="zhangd_feedback_td"></td>
       </tr>
-      <tr class="positive" id="slui">
+      <tr class="" id="slui">
         <td>slui</td>
         <td id="slui_layout_grade"></td>
         <td id="slui_behavior_grade"></td>
@@ -203,7 +203,7 @@
         <td id="slui_overall_grade"></td>
         <td id="slui_feedback_td"></td>
       </tr>
-      <tr class="positive" id="theronn">
+      <tr class="" id="theronn">
         <td>theronn</td>
         <td id="theronn_layout_grade"></td>
         <td id="theronn_behavior_grade"></td>
@@ -211,7 +211,7 @@
         <td id="theronn_overall_grade"></td>
         <td id="theronn_feedback_td"></td>
       </tr>
-      <tr class="negative" id="jlmart">
+      <tr class="" id="jlmart">
         <td>jlmart</td>
         <td id="jlmart_layout_grade"></td>
         <td id="jlmart_behavior_grade"></td>
@@ -221,6 +221,15 @@
       </tr>
     </tbody>
   </table>
+
+  <script>
+    if ($("#zhangd_layout").val() == "" || $("#zhangd_behavior").val() == "" || $("#zhangd_usability").val() == "" || $("#zhangd_overall").val() == "" || $("#zhangd_overall").val() == "NaN") {
+      $("#zhangd").attr('class', 'negative');
+    } else {
+      $("#zhangd").attr('class', 'positive'); 
+    }
+    
+  </script>
 
   <script>
     if (sessionStorage.init == null) {
@@ -382,6 +391,14 @@
       $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
       sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
       $("#zhangd_feedback_td").html(sessionStorage.ps1_6813_zhangd_feedback);
+      // if ($("#zhangd_overall_grade").html()) {
+      //   $("#zhangd").attr('class', 'positive');
+      // } else {
+      //   $("#zhangd").attr('class', 'negative');
+      // }
+      if ($("#zhangd_layout_grade").val() == "" || $("#zhangd_behavior_grade").val() == "" || $("#zhangd_usability_grade").val() == "") {
+        $("#zhangd").attr('class', 'negative');
+      }
     });
   </script>
 
