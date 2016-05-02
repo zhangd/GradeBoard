@@ -277,7 +277,20 @@
     $("#jlmart_overall_grade").html(average(sessionStorage.ps1_6813_jlmart_layout,sessionStorage.ps1_6813_jlmart_behavior,sessionStorage.ps1_6813_jlmart_usability));
     $("#jlmart_feedback").html(sessionStorage.ps1_6813_jlmart_feedback);
 
-    sessionStorage.ps1_6813 = 75;
+    var count = 0;
+    if (!($("#zhangd_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#slui_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#theronn_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    if (!($("#jlmart_overall_grade").is(':empty'))) {
+      count += 1;
+    }
+    sessionStorage.ps1_6813 = (count/4)*100;
   </script>
 
   <div class="ui zhangd modal">
