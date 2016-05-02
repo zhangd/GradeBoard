@@ -32,14 +32,14 @@
         // On the dashboard, assignments should be filtered by class here
         if (this.title === "all") {
           $('.raised.segment').each(function(){
-            $(this).show();
+            $(this).slideDown();
           });
         } else {
-          $('.raised.segment').each(function(){
-            $(this).hide();
+          $('.raised.segment:not([data-class="'+this.title+'"])').each(function(){
+            $(this).slideUp();
           });
           $('.raised.segment[data-class="'+this.title+'"]').each(function(){
-            $(this).show();
+            $(this).slideDown();
           });
         }
 
@@ -58,32 +58,16 @@
   <div class="ui visible vertical menu sidebar" style="overflow:hidden;">
     <div class="header item">
       <i class="sidebar icon toggle-sidebar" style="cursor:pointer;"></i>
-      GradeBoard
+      <a href="dashboard.html">GradeBoard</a>
     </div>
 
     <div class="item">
       Sarah Liu
     </div>
 
-    <div class="ui centered grid">
-      <div class="center aligned column">
-        <div class="ui secondary compact icon menu">
-          <a class="item" href="dashboard.html">
-            <i class="big home icon"></i>
-          </a>
-          <a class="item">
-            <i class="big user icon"></i>
-          </a>
-          <a class="item">
-            <i class="big power icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="ui fluid vertical secondary pointing blue accordion menu class-select">
+ <div class="ui fluid vertical secondary pointing blue accordion menu class-select" style="font-size:16px;">
       <div class="active item">
-        <a class="title" title="all" href="dashboard.html">
+        <a class="title" title="all">
           All Classes
         </a>
       </div>
@@ -95,7 +79,7 @@
         </a>
         <div class="content">
           <div class="menu">
-            <a class="item" href="assignment.html">
+            <a href="assignment.html" class="item">
               PS1
             </a>
           </div>
@@ -109,7 +93,7 @@
         </a>
         <div class="content">
           <div class="menu">
-            <a class="item" href="assignment.html">
+            <a class="item">
               PS1
             </a>
             <a class="item">
@@ -133,10 +117,27 @@
         </div>
       </div>
     </div>
+
+    <div style="position:absolute;bottom:15px;width:100%">
+      <div class = "ui divider"></div>
+
+      <div class = "ui bottom compact secondary vertical menu" style="font-size:16px;">
+        <div class = "item">
+          <a href="settings.html" style="color:rgba(0, 0, 0, 0.87);">
+            <i class="ui settings icon"></i>Settings
+          </a>
+        </div>
+        <div class = "item">
+          <a href="login.html" style="color:rgba(0, 0, 0, 0.87);">
+            <i class="ui sign out icon"></i>Logout
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="pusher">
-    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;" id="sidebar-button">
+    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;">
       <i class="sidebar icon"></i>
     </button>
 
@@ -186,15 +187,15 @@
       <th class="five wide">Comments</th>
     </tr></thead>
     <tbody style = "cursor:pointer;">
-      <tr class="positive">
+      <tr class="positive" id="zhangd">
         <td>zhangd</td>
-        <td>90</td>
-        <td>85</td>
-        <td>95</td>
-        <td>90</td>
-        <td>awesome</td>
+        <td id="zhangd_layout_grade"></td>
+        <td id="zhangd_behavior_grade"></td>
+        <td id="zhangd_usability_grade"></td>
+        <td id="zhangd_overall_grade"></td>
+        <td id="zhangd_feedback"></td>
       </tr>
-      <tr class="positive">
+      <tr class="positive" id="slui">
         <td>slui</td>
         <td>85</td>
         <td>90</td>
@@ -202,7 +203,7 @@
         <td>85</td>
         <td>cool</td>
       </tr>
-      <tr class="positive">
+      <tr class="positive" id="theronn">
         <td>theronn</td>
         <td>100</td>
         <td>100</td>
@@ -221,7 +222,309 @@
     </tbody>
   </table>
 
-  <div class="ui modal">
+  <script>
+    if (sessionStorage.init == null) {
+      sessionStorage.init = 0;
+    } else {
+      sessionStorage.init = 1;
+    }
+
+    function average(a,b,c) {
+      return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
+    }
+
+    if (sessionStorage.init == "0") {
+      sessionStorage.ps1_6813_zhangd_layout = 90;
+      sessionStorage.ps1_6813_zhangd_behavior = 85;
+      sessionStorage.ps1_6813_zhangd_usability = 95;
+      sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+      sessionStorage.ps1_6813_zhangd_feedback = "awesome";
+
+      sessionStorage.ps1_6813_zhangd_layout = 90;
+      sessionStorage.ps1_6813_zhangd_behavior = 85;
+      sessionStorage.ps1_6813_zhangd_usability = 95;
+      sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+      sessionStorage.ps1_6813_zhangd_feedback = "awesome";
+
+      sessionStorage.ps1_6813_zhangd_layout = 90;
+      sessionStorage.ps1_6813_zhangd_behavior = 85;
+      sessionStorage.ps1_6813_zhangd_usability = 95;
+      sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+      sessionStorage.ps1_6813_zhangd_feedback = "awesome";
+
+      sessionStorage.ps1_6813_zhangd_layout = 90;
+      sessionStorage.ps1_6813_zhangd_behavior = 85;
+      sessionStorage.ps1_6813_zhangd_usability = 95;
+      sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+      sessionStorage.ps1_6813_zhangd_feedback = "awesome";
+    }
+
+    $("#zhangd_layout_grade").html(sessionStorage.ps1_6813_zhangd_layout);
+    $("#zhangd_behavior_grade").html(sessionStorage.ps1_6813_zhangd_behavior);
+    $("#zhangd_usability_grade").html(sessionStorage.ps1_6813_zhangd_usability);
+    $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
+    $("#zhangd_feedback").html(sessionStorage.ps1_6813_zhangd_feedback);
+
+    sessionStorage.ps1_6813 = 75;
+  </script>
+
+  <div class="ui zhangd modal">
+    <i class="close icon"></i>
+    <div class="header">
+      PS1 - zhangd
+    </div>
+    <div class="content">
+      <h3>Rubric</h3>
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Excellent</th>
+            <th>Satisfactory</th>
+            <th>Poor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="category">Layout</td>
+            <td>The student did an excellent job at UI layout.</td>
+            <td>The student did an satisfactory job at UI layout.</td>
+            <td>The student did an poor job at UI layout.</td>
+          </tr>
+          <tr>
+            <td class="category">Behavior</td>
+            <td>The student did an excellent job at UI behavior.</td>
+            <td>The student did an satisfactory job at UI behavior.</td>
+            <td>The student did an poor job at UI behavior.</td>
+          </tr>
+          <tr>
+            <td class="category">Usability</td>
+            <td>The student did an excellent job at UI usability.</td>
+            <td>The student did an satisfactory job at UI usability.</td>
+            <td>The student did an poor job at UI usability.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui grid">
+        <div class="four wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Layout</label>
+              <input type="text" name="layout" placeholder="Grade" id="zhangd_layout">
+            </div>
+            <div class="field">
+              <label>Behavior</label>
+              <input type="text" name="behavior" placeholder="Grade" id="zhangd_behavior">
+            </div>
+            <div class="field">
+              <label>Usability</label>
+              <input type="text" name="usability" placeholder="Grade" id="zhangd_usability">
+            </div>
+            <div class="field">
+              <label>Overall Grade</label>
+              <input name="overall" readonly="" placeholder="95">
+            </div>
+          </form>
+        </div>
+        <div class="twelve wide column">
+          <form class="ui form" id="zhangd_feedback">
+            <div class="field">
+              <label>Feedback</label>
+              <textarea rows="14"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui red deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button" id="zhangd_save">
+        Save
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function average(a,b,c) {
+      return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
+    }    
+
+    $( "#zhangd_save" ).click(function() {
+      sessionStorage.ps1_6813_zhangd_layout = $("#zhangd_layout").val();
+      $("#zhangd_layout_grade").html(sessionStorage.ps1_6813_zhangd_layout);
+      sessionStorage.ps1_6813_zhangd_behavior = $("#zhangd_behavior").val();
+      $("#zhangd_behavior_grade").html(sessionStorage.ps1_6813_zhangd_behavior);
+      sessionStorage.ps1_6813_zhangd_usability = $("#zhangd_usability").val();
+      $("#zhangd_usability_grade").html(sessionStorage.ps1_6813_zhangd_usability);
+      sessionStorage.ps1_6813_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+      $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
+      sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
+      $("#zhangd_feedback").html(sessionStorage.ps1_6813_zhangd_feedback);
+    });
+  </script>
+
+  <div class="ui slui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      PS1 - slui
+    </div>
+    <div class="content">
+      <h3>Rubric</h3>
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Excellent</th>
+            <th>Satisfactory</th>
+            <th>Poor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="category">Layout</td>
+            <td>The student did an excellent job at UI layout.</td>
+            <td>The student did an satisfactory job at UI layout.</td>
+            <td>The student did an poor job at UI layout.</td>
+          </tr>
+          <tr>
+            <td class="category">Behavior</td>
+            <td>The student did an excellent job at UI behavior.</td>
+            <td>The student did an satisfactory job at UI behavior.</td>
+            <td>The student did an poor job at UI behavior.</td>
+          </tr>
+          <tr>
+            <td class="category">Usability</td>
+            <td>The student did an excellent job at UI usability.</td>
+            <td>The student did an satisfactory job at UI usability.</td>
+            <td>The student did an poor job at UI usability.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui grid">
+        <div class="four wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Layout</label>
+              <input type="text" name="layout" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Behavior</label>
+              <input type="text" name="behavior" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Usability</label>
+              <input type="text" name="usability" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Overall Grade</label>
+              <input name="overall" readonly="" placeholder="95">
+            </div>
+          </form>
+        </div>
+        <div class="twelve wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Feedback</label>
+              <textarea rows="14"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui red deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui theronn modal">
+    <i class="close icon"></i>
+    <div class="header">
+      PS1 - slui
+    </div>
+    <div class="content">
+      <h3>Rubric</h3>
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Excellent</th>
+            <th>Satisfactory</th>
+            <th>Poor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="category">Layout</td>
+            <td>The student did an excellent job at UI layout.</td>
+            <td>The student did an satisfactory job at UI layout.</td>
+            <td>The student did an poor job at UI layout.</td>
+          </tr>
+          <tr>
+            <td class="category">Behavior</td>
+            <td>The student did an excellent job at UI behavior.</td>
+            <td>The student did an satisfactory job at UI behavior.</td>
+            <td>The student did an poor job at UI behavior.</td>
+          </tr>
+          <tr>
+            <td class="category">Usability</td>
+            <td>The student did an excellent job at UI usability.</td>
+            <td>The student did an satisfactory job at UI usability.</td>
+            <td>The student did an poor job at UI usability.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui grid">
+        <div class="four wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Layout</label>
+              <input type="text" name="layout" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Behavior</label>
+              <input type="text" name="behavior" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Usability</label>
+              <input type="text" name="usability" placeholder="Grade">
+            </div>
+            <div class="field">
+              <label>Overall Grade</label>
+              <input name="overall" readonly="" placeholder="95">
+            </div>
+          </form>
+        </div>
+        <div class="twelve wide column">
+          <form class="ui form">
+            <div class="field">
+              <label>Feedback</label>
+              <textarea rows="14"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui red deny button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui jlmart modal">
     <i class="close icon"></i>
     <div class="header">
       PS1 - jlmart
@@ -293,19 +596,31 @@
       <div class="ui red deny button">
         Cancel
       </div>
-      <div class="ui green positive button">
-        Save
-      </div>
       <div class="ui positive right labeled icon button">
-        Submit
+        Save
         <i class="checkmark icon"></i>
       </div>
     </div>
   </div>
 
   <script>
+    $('#zhangd').click(function() {
+      $('.ui.zhangd.modal')
+        .modal('show')
+      ;
+    });
+    $('#slui').click(function() {
+      $('.ui.slui.modal')
+        .modal('show')
+      ;
+    });
+    $('#theronn').click(function() {
+      $('.ui.theronn.modal')
+        .modal('show')
+      ;
+    });
     $('#jlmart').click(function() {
-      $('.ui.modal')
+      $('.ui.jlmart.modal')
         .modal('show')
       ;
     });
