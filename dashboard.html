@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <title>GradeBoard</title>
 
-  <!-- Load style sheets -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/dashboard.css" />
-
   <!-- Load scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
@@ -16,6 +12,11 @@
   <script src="assets/Semantic-UI/semantic.min.js"></script>
   <script src="assets/Semantic-UI/components/accordion.js"></script>
   <link href="assets/Semantic-UI/semantic.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Load style sheets -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+
 </head>
 
 <body class="pushable">
@@ -47,6 +48,92 @@
         // this.title gives the class name, or "all" for all classes
         console.log(this.title);
       });
+
+      var ps1_6813 = 75;
+      var ps2_6046 = 25;
+      var hw1_6170 = 0;
+      var ps1_6046 = 100;
+
+      if (window.sessionStorage.ps1_6813 != null) {
+        ps1_6813 = window.sessionStorage.ps1_6813;
+      }
+      if (window.sessionStorage.ps2_6046 != null) {
+        ps2_6046 = window.sessionStorage.ps2_6046;
+      }
+      if (window.sessionStorage.hw1_6170 != null) {
+        hw1_6170 = window.sessionStorage.hw1_6170;
+      }
+      if (window.sessionStorage.ps1_6046 != null) {
+        ps1_6046 = window.sessionStorage.ps1_6046;
+      }
+
+      $("#ps1_6813_progress").attr("data-percent", ps1_6813);
+      $("#ps1_6813_bar").css("width",ps1_6813+"%");
+      $("#ps1_6813_label").html(ps1_6813+"% Graded");
+      $("#ps1_6813_button").css("color", "#fff");
+      if (ps1_6813 == 0) {
+        $("#ps1_6813_button").html("Start grading");
+        $("#ps1_6813_button").css("background-color", "#2185d0");
+      }
+      else if (ps1_6813 == 100) {
+        $("#ps1_6813_button").html("View grades");
+        $("#ps1_6813_button").css("background-color", "#767676");
+      }
+      else {
+        $("#ps1_6813_button").html("Continue grading");
+        $("#ps1_6813_button").css("background-color", "#767676");
+      }
+
+      $("#ps2_6046_progress").attr("data-percent", ps2_6046);
+      $("#ps2_6046_bar").css("width",ps2_6046+"%");
+      $("#ps2_6046_label").html(ps2_6046+"% Graded");
+      $("#ps2_6046_button").css("color", "#fff");
+      if (ps2_6046 == 0) {
+        $("#ps2_6046_button").html("Start grading");
+        $("#ps2_6046_button").css("background-color", "#2185d0");
+      }
+      else if (ps2_6046 == 100) {
+        $("#ps2_6046_button").html("View grades");
+        $("#ps2_6046_button").css("background-color", "#767676");
+      }
+      else {
+        $("#ps2_6046_button").html("Continue grading");
+        $("#ps2_6046_button").css("background-color", "#767676");
+      }
+
+      $("#hw1_6170_progress").attr("data-percent", hw1_6170);
+      $("#hw1_6170_bar").css("width",hw1_6170+"%");
+      $("#hw1_6170_label").html(hw1_6170+"% Graded");
+      $("#hw1_6170_button").css("color", "#fff");
+      if (hw1_6170 == 0) {
+        $("#hw1_6170_button").html("Start grading");
+        $("#hw1_6170_button").css("background-color", "#2185d0");
+      }
+      else if (hw1_6170 == 100) {
+        $("#hw1_6170_button").html("View grades");
+        $("#hw1_6170_button").css("background-color", "#767676");
+      }
+      else {
+        $("#hw1_6170_button").html("Continue grading");
+        $("#hw1_6170_button").css("background-color", "#767676");
+      }
+
+      $("#ps1_6046_progress").attr("data-percent", ps1_6046);
+      $("#ps1_6046_bar").css("width",ps1_6046+"%");
+      $("#ps1_6046_label").html(ps1_6046+"% Graded");
+      $("#ps1_6046_button").css("color", "#fff");
+      if (ps1_6046 == 0) {
+        $("#ps1_6046_button").html("Start grading");
+        $("#ps1_6046_button").css("background-color", "#2185d0");
+      }
+      else if (ps1_6046 == 100) {
+        $("#ps1_6046_button").html("View grades");
+        $("#ps1_6046_button").css("background-color", "#767676");
+      }
+      else {
+        $("#ps1_6046_button").html("Continue grading");
+        $("#ps1_6046_button").css("background-color", "#767676");
+      }
 
 
       $('.toggle-sidebar').click(function(){
@@ -168,14 +255,14 @@
   	    </div>
         <div class = "flex-container">
           <div class = "flex-item-1">
-      	   	<div class = "ui indicating progress" data-percent="80">
-      	    	<div class = "bar" style = "transition-duration: 300ms; width:80%;"></div>
-      	    	<div class = "label">80% Graded</div>
+      	   	<div class = "ui indicating progress" id = "ps1_6813_progress">
+      	    	<div class = "bar" id = "ps1_6813_bar" style = "transition-duration: 300ms"></div>
+      	    	<div class = "label" id = "ps1_6813_label"></div>
       	    </div>
           </div>
           <div class = "flex-item-2">
             <a href="assignment.html">
-        	    <button class = "ui grey button" style = "width:150px;"> Continue grading </button>
+        	    <button class = "ui button" id = "ps1_6813_button" style = "width:150px;"> </button>
         	  </a>
           </div>
      	  </div>
@@ -188,14 +275,14 @@
         </div>
         <div class = "flex-container">
           <div class = "flex-item-1">
-            <div class = "ui indicating progress" data-percent="20">
-              <div class = "bar" style = "transition-duration: 300ms; width:20%;"></div>
-              <div class = "label">20% Graded</div>
+            <div class = "ui indicating progress" id = "ps2_6046_progress">
+              <div class = "bar" id = "ps2_6046_bar" style = "transition-duration: 300ms"></div>
+              <div class = "label" id = "ps2_6046_label"></div>
             </div>
           </div>
           <div class = "flex-item-2">
             <a href="assignment.html">
-              <button class = "ui grey button" style = "width:150px;"> Continue grading </button>
+              <button class = "ui button" id = "ps2_6046_button" style = "width:150px;"> </button>
             </a>
           </div>
         </div>
@@ -204,18 +291,18 @@
       <div class="ui raised segment" data-class = "6.170" style = "margin: 2em; width: 67%;">
         <div style="margin-bottom:1em;">
           <span style = "font-size:20px;font-weight:bold;"> 6.170 HW1 </span>&nbsp;
-          <span style = "font-style:italic;"> due April 20 </span>
+          <span style = "font-style:italic;"> due May 20 </span>
         </div>
         <div class = "flex-container">
           <div class = "flex-item-1">
-            <div class = "ui indicating progress" data-percent="0">
-              <div class = "bar" style = "transition-duration: 300ms; width:0%;"></div>
-              <div class = "label">0% Graded</div>
+            <div class = "ui indicating progress" id = "hw1_6170_progress">
+              <div class = "bar" id = "hw1_6170_bar" style = "transition-duration: 300ms;"></div>
+              <div class = "label" id = "hw1_6170_label"></div>
             </div>
           </div>
           <div class = "flex-item-2">
             <a href="assignment.html">
-              <button class = "ui primary button" style = "width:150px;"> Start grading </button>
+              <button class = "ui button" id = "hw1_6170_button" style = "width:150px;"> </button>
             </a>
           </div>
         </div>
@@ -228,14 +315,14 @@
         </div>
         <div class = "flex-container">
           <div class = "flex-item-1">
-            <div class = "ui disabled progress" data-percent="100">
-              <div class = "bar" style = "transition-duration: 300ms; width:100%;"></div>
-              <div class = "label">100% Graded</div>
+            <div class = "ui disabled progress" id = "ps1_6046_progress">
+              <div class = "bar" id = "ps1_6046_bar" style = "transition-duration: 300ms;"></div>
+              <div class = "label" id = "ps1_6046_label"></div>
             </div>
           </div>
           <div class = "flex-item-2">
             <a href="assignment.html">
-              <button class = "ui grey button" style = "width:150px;"> View grades </button>
+              <button class = "ui button" id = "ps1_6046_button" style = "width:150px;"> </button>
             </a>
           </div>
         </div>
