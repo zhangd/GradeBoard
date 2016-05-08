@@ -67,13 +67,13 @@
 
  <div class="ui fluid vertical secondary pointing blue accordion menu class-select" style="font-size:16px;">
       <div class="active item">
-        <a class="title" title="all">
+        <a class="title" href="dashboard.html" title="all">
           All Classes
         </a>
       </div>
 
       <div class="item">
-        <a class="title" title="6.813">
+        <a href="dashboard.html" class="title" title="6.813">
           <i class="dropdown icon"></i>
           6.813
         </a>
@@ -87,7 +87,7 @@
       </div>
 
       <div class="item">
-        <a class="title" title="6.046">
+        <a class="title" href="dashboard.html" title="6.046">
           <i class="dropdown icon"></i>
           6.046
         </a>
@@ -104,7 +104,7 @@
       </div>
 
       <div class="item">
-        <a class="title" title="6.170">
+        <a class="title" href="dashboard.html" title="6.170">
           <i class="dropdown icon"></i>
           6.170
         </a>
@@ -253,6 +253,9 @@
     }
 
     function average(a,b,c) {
+      if (isNaN(parseInt(a)) || isNaN(parseInt(b)) || isNaN(parseInt(c))) {
+        return null;
+      }
       return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
     }
 
@@ -368,17 +371,13 @@
               <label>Usability</label>
               <input type="text" name="usability" id="zhangd_usability">
             </div>
-            <div class="field">
-              <label>Overall Grade</label>
-              <input name="overall" readonly="" id="zhangd_overall">
-            </div>
           </form>
         </div>
         <div class="twelve wide column">
           <form class="ui form">
             <div class="field">
               <label>Feedback</label>
-              <textarea rows="14" id="zhangd_feedback"></textarea>
+              <textarea rows="10" id="zhangd_feedback"></textarea>
             </div>
           </form>
         </div>
@@ -492,17 +491,13 @@
               <label>Usability</label>
               <input type="text" name="usability" id="slui_usability">
             </div>
-            <div class="field">
-              <label>Overall Grade</label>
-              <input name="overall" readonly="" id="slui_overall">
-            </div>
           </form>
         </div>
         <div class="twelve wide column">
           <form class="ui form">
             <div class="field">
               <label>Feedback</label>
-              <textarea rows="14" id="slui_feedback"></textarea>
+              <textarea rows="10" id="slui_feedback"></textarea>
             </div>
           </form>
         </div>
@@ -616,17 +611,13 @@
               <label>Usability</label>
               <input type="text" name="usability" id="theronn_usability">
             </div>
-            <div class="field">
-              <label>Overall Grade</label>
-              <input name="overall" readonly="" id="theronn_overall">
-            </div>
           </form>
         </div>
         <div class="twelve wide column">
           <form class="ui form">
             <div class="field">
               <label>Feedback</label>
-              <textarea rows="14" id="theronn_feedback"></textarea>
+              <textarea rows="10" id="theronn_feedback"></textarea>
             </div>
           </form>
         </div>
@@ -740,17 +731,13 @@
               <label>Usability</label>
               <input type="text" name="usability" id="jlmart_usability">
             </div>
-            <div class="field">
-              <label>Overall Grade</label>
-              <input name="overall" readonly="" id="jlmart_overall">
-            </div>
           </form>
         </div>
         <div class="twelve wide column">
           <form class="ui form">
             <div class="field">
               <label>Feedback</label>
-              <textarea rows="14" id="jlmart_feedback"></textarea>
+              <textarea rows="10" id="jlmart_feedback"></textarea>
             </div>
           </form>
         </div>
@@ -780,16 +767,22 @@
     }
 
     $( "#jlmart_save" ).click(function() {
-      sessionStorage.ps1_6813_jlmart_layout = $("#jlmart_layout").val();
-      $("#jlmart_layout_grade").html(sessionStorage.ps1_6813_jlmart_layout);
-      sessionStorage.ps1_6813_jlmart_behavior = $("#jlmart_behavior").val();
-      $("#jlmart_behavior_grade").html(sessionStorage.ps1_6813_jlmart_behavior);
-      sessionStorage.ps1_6813_jlmart_usability = $("#jlmart_usability").val();
-      $("#jlmart_usability_grade").html(sessionStorage.ps1_6813_jlmart_usability);
-      sessionStorage.ps1_6813_jlmart_overall = average(sessionStorage.ps1_6813_jlmart_layout,sessionStorage.ps1_6813_jlmart_behavior,sessionStorage.ps1_6813_jlmart_usability);
-      $("#jlmart_overall_grade").html(sessionStorage.ps1_6813_jlmart_overall);
-      sessionStorage.ps1_6813_jlmart_feedback = $("#jlmart_feedback").val();
-      $("#jlmart_feedback_td").html(sessionStorage.ps1_6813_jlmart_feedback);
+      if (typeof ($("#jlmart_layout").val()) == "number" && typeof ($("#jlmart_behavior").val()) == "number" && typeof ($("#jlmart_usability").val()) == "number") {
+        sessionStorage.ps1_6813_jlmart_layout = $("#jlmart_layout").val();
+        $("#jlmart_layout_grade").html(sessionStorage.ps1_6813_jlmart_layout);
+        sessionStorage.ps1_6813_jlmart_behavior = $("#jlmart_behavior").val();
+        $("#jlmart_behavior_grade").html(sessionStorage.ps1_6813_jlmart_behavior);
+        sessionStorage.ps1_6813_jlmart_usability = $("#jlmart_usability").val();
+        $("#jlmart_usability_grade").html(sessionStorage.ps1_6813_jlmart_usability);
+        sessionStorage.ps1_6813_jlmart_overall = average(sessionStorage.ps1_6813_jlmart_layout,sessionStorage.ps1_6813_jlmart_behavior,sessionStorage.ps1_6813_jlmart_usability);
+        $("#jlmart_overall_grade").html(sessionStorage.ps1_6813_jlmart_overall);
+        sessionStorage.ps1_6813_jlmart_feedback = $("#jlmart_feedback").val();
+        $("#jlmart_feedback_td").html(sessionStorage.ps1_6813_jlmart_feedback);
+      }
+      else {
+        alert("Invalid grade input");
+      }
+
       var count = 0;
       if (sessionStorage.ps1_6813_zhangd_overall) {
         count += 1;
