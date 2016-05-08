@@ -137,7 +137,7 @@
   </div>
 
   <div class="pusher">
-    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;" id="sidebar-button">
+    <button class="ui icon button show-sidebar toggle-sidebar" style="display:none;">
       <i class="sidebar icon"></i>
     </button>
 
@@ -226,22 +226,22 @@
     if (sessionStorage.ps1_6813_zhangd_overall == null || sessionStorage.ps1_6813_zhangd_overall == "NaN" || $("zhangd_overall") == "NaN" || $("zhangd_overall") == null) {
       $("#zhangd").attr('class', 'negative');
     } else {
-      $("#zhangd").attr('class', 'positive');
+      $("#zhangd").attr('class', 'positive'); 
     }
     if (sessionStorage.ps1_6813_slui_overall == null || sessionStorage.ps1_6813_slui_overall == "NaN" || $("slui_overall") == "NaN" || $("slui_overall") == null) {
       $("#slui").attr('class', 'negative');
     } else {
-      $("#slui").attr('class', 'positive');
+      $("#slui").attr('class', 'positive'); 
     }
     if (sessionStorage.ps1_6813_theronn_overall == null || sessionStorage.ps1_6813_theronn_overall == "NaN" || $("theronn_overall") == "NaN" || $("theronn_overall") == null) {
       $("#theronn").attr('class', 'negative');
     } else {
-      $("#theronn").attr('class', 'positive');
+      $("#theronn").attr('class', 'positive'); 
     }
     if (sessionStorage.ps1_6813_jlmart_overall == null || sessionStorage.ps1_6813_jlmart_overall == "NaN" || $("jlmart_overall") == "NaN" || $("jlmart_overall") == null) {
       $("#jlmart").attr('class', 'negative');
     } else {
-      $("#jlmart").attr('class', 'positive');
+      $("#jlmart").attr('class', 'positive'); 
     }
   </script>
 
@@ -277,6 +277,11 @@
       sessionStorage.ps1_6813_theronn_usability = 100;
       sessionStorage.ps1_6813_theronn_overall = average(sessionStorage.ps1_6813_theronn_layout,sessionStorage.ps1_6813_theronn_behavior,sessionStorage.ps1_6813_theronn_usability);
       sessionStorage.ps1_6813_theronn_feedback = "right on!";
+
+      $("#zhangd").attr('class', 'positive');
+      $("#slui").attr('class', 'positive');
+      $("#theronn").attr('class', 'positive');
+      $("#jlmart").attr('class', 'negative');
     }
 
     $("#zhangd_layout_grade").html(sessionStorage.ps1_6813_zhangd_layout);
@@ -404,7 +409,7 @@
   <script>
     function average(a,b,c) {
       return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
-    }
+    }    
 
     $( "#zhangd_save" ).click(function() {
       sessionStorage.ps1_6813_zhangd_layout = $("#zhangd_layout").val();
@@ -434,7 +439,7 @@
       if (sessionStorage.ps1_6813_zhangd_overall == null || sessionStorage.ps1_6813_zhangd_overall == "NaN" || $("zhangd_overall") == "NaN" || $("zhangd_overall") == null) {
         $("#zhangd").attr('class', 'negative');
       } else {
-        $("#zhangd").attr('class', 'positive');
+        $("#zhangd").attr('class', 'positive'); 
       }
     });
   </script>
@@ -524,7 +529,7 @@
   <script>
     function average(a,b,c) {
       return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
-    }
+    }    
 
     $( "#slui_save" ).click(function() {
       sessionStorage.ps1_6813_slui_layout = $("#slui_layout").val();
@@ -554,7 +559,7 @@
       if (sessionStorage.ps1_6813_slui_overall == null || sessionStorage.ps1_6813_slui_overall == "NaN" || $("slui_overall") == "NaN" || $("slui_overall") == null) {
         $("#slui").attr('class', 'negative');
       } else {
-        $("#slui").attr('class', 'positive');
+        $("#slui").attr('class', 'positive'); 
       }
     });
   </script>
@@ -644,7 +649,7 @@
   <script>
     function average(a,b,c) {
       return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
-    }
+    }    
 
     $( "#theronn_save" ).click(function() {
       sessionStorage.ps1_6813_theronn_layout = $("#theronn_layout").val();
@@ -674,7 +679,7 @@
       if (sessionStorage.ps1_6813_theronn_overall == null || sessionStorage.ps1_6813_theronn_overall == "NaN" || $("theronn_overall") == "NaN" || $("theronn_overall") == null) {
         $("#theronn").attr('class', 'negative');
       } else {
-        $("#theronn").attr('class', 'positive');
+        $("#theronn").attr('class', 'positive'); 
       }
     });
   </script>
@@ -764,7 +769,7 @@
   <script>
     function average(a,b,c) {
       return (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
-    }
+    }    
 
     $( "#jlmart_save" ).click(function() {
       if (typeof ($("#jlmart_layout").val()) == "number" && typeof ($("#jlmart_behavior").val()) == "number" && typeof ($("#jlmart_usability").val()) == "number") {
@@ -800,7 +805,7 @@
       if (sessionStorage.ps1_6813_jlmart_overall == null || sessionStorage.ps1_6813_jlmart_overall == "NaN" || $("jlmart_overall") == "NaN" || $("jlmart_overall") == null) {
         $("#jlmart").attr('class', 'negative');
       } else {
-        $("#jlmart").attr('class', 'positive');
+        $("#jlmart").attr('class', 'positive'); 
       }
     });
   </script>
