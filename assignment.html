@@ -412,16 +412,21 @@
     }    
 
     $( "#zhangd_save" ).click(function() {
-      sessionStorage.ps1_6813_zhangd_layout = $("#zhangd_layout").val();
-      $("#zhangd_layout_grade").html(sessionStorage.ps1_6813_zhangd_layout);
-      sessionStorage.ps1_6813_zhangd_behavior = $("#zhangd_behavior").val();
-      $("#zhangd_behavior_grade").html(sessionStorage.ps1_6813_zhangd_behavior);
-      sessionStorage.ps1_6813_zhangd_usability = $("#zhangd_usability").val();
-      $("#zhangd_usability_grade").html(sessionStorage.ps1_6813_zhangd_usability);
-      sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
-      $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
-      sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
-      $("#zhangd_feedback_td").html(sessionStorage.ps1_6813_zhangd_feedback);
+      if (!isNaN($("#zhangd_layout").val()) && !isNaN($("#zhangd_behavior").val()) && !isNaN($("#zhangd_usability").val()) && $("#zhangd_layout").val().trim() && $("#zhangd_behavior").val().trim() && $("#zhangd_usability").val().trim()) {
+        sessionStorage.ps1_6813_zhangd_layout = $("#zhangd_layout").val();
+        $("#zhangd_layout_grade").html(sessionStorage.ps1_6813_zhangd_layout);
+        sessionStorage.ps1_6813_zhangd_behavior = $("#zhangd_behavior").val();
+        $("#zhangd_behavior_grade").html(sessionStorage.ps1_6813_zhangd_behavior);
+        sessionStorage.ps1_6813_zhangd_usability = $("#zhangd_usability").val();
+        $("#zhangd_usability_grade").html(sessionStorage.ps1_6813_zhangd_usability);
+        sessionStorage.ps1_6813_zhangd_overall = average(sessionStorage.ps1_6813_zhangd_layout,sessionStorage.ps1_6813_zhangd_behavior,sessionStorage.ps1_6813_zhangd_usability);
+        $("#zhangd_overall_grade").html(sessionStorage.ps1_6813_zhangd_overall);
+        sessionStorage.ps1_6813_zhangd_feedback = $("#zhangd_feedback").val();
+        $("#zhangd_feedback_td").html(sessionStorage.ps1_6813_zhangd_feedback);
+      }
+      else { 
+        alert("Invalid grade input");
+      }
       var count = 0;
       if (sessionStorage.ps1_6813_zhangd_overall) {
         count += 1;
@@ -532,16 +537,21 @@
     }    
 
     $( "#slui_save" ).click(function() {
-      sessionStorage.ps1_6813_slui_layout = $("#slui_layout").val();
-      $("#slui_layout_grade").html(sessionStorage.ps1_6813_slui_layout);
-      sessionStorage.ps1_6813_slui_behavior = $("#slui_behavior").val();
-      $("#slui_behavior_grade").html(sessionStorage.ps1_6813_slui_behavior);
-      sessionStorage.ps1_6813_slui_usability = $("#slui_usability").val();
-      $("#slui_usability_grade").html(sessionStorage.ps1_6813_slui_usability);
-      sessionStorage.ps1_6813_slui_overall = average(sessionStorage.ps1_6813_slui_layout,sessionStorage.ps1_6813_slui_behavior,sessionStorage.ps1_6813_slui_usability);
-      $("#slui_overall_grade").html(sessionStorage.ps1_6813_slui_overall);
-      sessionStorage.ps1_6813_slui_feedback = $("#slui_feedback").val();
-      $("#slui_feedback_td").html(sessionStorage.ps1_6813_slui_feedback);
+      if (!isNaN($("#slui_layout").val()) && !isNaN($("#slui_behavior").val()) && !isNaN($("#slui_usability").val()) && $("#slui_layout").val().trim() && $("#slui_behavior").val().trim() && $("#slui_usability").val().trim()) {
+        sessionStorage.ps1_6813_slui_layout = $("#slui_layout").val();
+        $("#slui_layout_grade").html(sessionStorage.ps1_6813_slui_layout);
+        sessionStorage.ps1_6813_slui_behavior = $("#slui_behavior").val();
+        $("#slui_behavior_grade").html(sessionStorage.ps1_6813_slui_behavior);
+        sessionStorage.ps1_6813_slui_usability = $("#slui_usability").val();
+        $("#slui_usability_grade").html(sessionStorage.ps1_6813_slui_usability);
+        sessionStorage.ps1_6813_slui_overall = average(sessionStorage.ps1_6813_slui_layout,sessionStorage.ps1_6813_slui_behavior,sessionStorage.ps1_6813_slui_usability);
+        $("#slui_overall_grade").html(sessionStorage.ps1_6813_slui_overall);
+        sessionStorage.ps1_6813_slui_feedback = $("#slui_feedback").val();
+        $("#slui_feedback_td").html(sessionStorage.ps1_6813_slui_feedback);
+      }
+      else { 
+        alert("Invalid grade input");
+      }
       var count = 0;
       if (sessionStorage.ps1_6813_zhangd_overall) {
         count += 1;
@@ -652,16 +662,21 @@
     }    
 
     $( "#theronn_save" ).click(function() {
-      sessionStorage.ps1_6813_theronn_layout = $("#theronn_layout").val();
-      $("#theronn_layout_grade").html(sessionStorage.ps1_6813_theronn_layout);
-      sessionStorage.ps1_6813_theronn_behavior = $("#theronn_behavior").val();
-      $("#theronn_behavior_grade").html(sessionStorage.ps1_6813_theronn_behavior);
-      sessionStorage.ps1_6813_theronn_usability = $("#theronn_usability").val();
-      $("#theronn_usability_grade").html(sessionStorage.ps1_6813_theronn_usability);
-      sessionStorage.ps1_6813_theronn_overall = average(sessionStorage.ps1_6813_theronn_layout,sessionStorage.ps1_6813_theronn_behavior,sessionStorage.ps1_6813_theronn_usability);
-      $("#theronn_overall_grade").html(sessionStorage.ps1_6813_theronn_overall);
-      sessionStorage.ps1_6813_theronn_feedback = $("#theronn_feedback").val();
-      $("#theronn_feedback_td").html(sessionStorage.ps1_6813_theronn_feedback);
+      if (!isNaN($("#theronn_layout").val()) && !isNaN($("#theronn_behavior").val()) && !isNaN($("#theronn_usability").val()) && $("#theronn_layout").val().trim() && $("#theronn_behavior").val().trim() && $("#theronn_usability").val().trim()) {
+        sessionStorage.ps1_6813_theronn_layout = $("#theronn_layout").val();
+        $("#theronn_layout_grade").html(sessionStorage.ps1_6813_theronn_layout);
+        sessionStorage.ps1_6813_theronn_behavior = $("#theronn_behavior").val();
+        $("#theronn_behavior_grade").html(sessionStorage.ps1_6813_theronn_behavior);
+        sessionStorage.ps1_6813_theronn_usability = $("#theronn_usability").val();
+        $("#theronn_usability_grade").html(sessionStorage.ps1_6813_theronn_usability);
+        sessionStorage.ps1_6813_theronn_overall = average(sessionStorage.ps1_6813_theronn_layout,sessionStorage.ps1_6813_theronn_behavior,sessionStorage.ps1_6813_theronn_usability);
+        $("#theronn_overall_grade").html(sessionStorage.ps1_6813_theronn_overall);
+        sessionStorage.ps1_6813_theronn_feedback = $("#theronn_feedback").val();
+        $("#theronn_feedback_td").html(sessionStorage.ps1_6813_theronn_feedback);
+      }
+      else { 
+        alert("Invalid grade input");
+      }
       var count = 0;
       if (sessionStorage.ps1_6813_zhangd_overall) {
         count += 1;
@@ -772,7 +787,7 @@
     }    
 
     $( "#jlmart_save" ).click(function() {
-      if (typeof ($("#jlmart_layout").val()) == "number" && typeof ($("#jlmart_behavior").val()) == "number" && typeof ($("#jlmart_usability").val()) == "number") {
+      if (!isNaN($("#jlmart_layout").val()) && !isNaN($("#jlmart_behavior").val()) && !isNaN($("#jlmart_usability").val()) && $("#jlmart_layout").val().trim() && $("#jlmart_behavior").val().trim() && $("#jlmart_usability").val().trim()) {
         sessionStorage.ps1_6813_jlmart_layout = $("#jlmart_layout").val();
         $("#jlmart_layout_grade").html(sessionStorage.ps1_6813_jlmart_layout);
         sessionStorage.ps1_6813_jlmart_behavior = $("#jlmart_behavior").val();
@@ -784,7 +799,7 @@
         sessionStorage.ps1_6813_jlmart_feedback = $("#jlmart_feedback").val();
         $("#jlmart_feedback_td").html(sessionStorage.ps1_6813_jlmart_feedback);
       }
-      else {
+      else { 
         alert("Invalid grade input");
       }
 
